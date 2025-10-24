@@ -1,0 +1,18 @@
+kind: Application
+apiVersion: argoproj.io/v1alpha1
+metadata:
+  name: online-shopping-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/pr12sdd/online-shopping-app.git
+    targetRevision: master
+    path: .
+  destination:
+    server: https://172.31.13.29:33983
+    namespace: online-shop-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
