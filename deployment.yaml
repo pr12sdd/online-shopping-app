@@ -1,0 +1,27 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: online-shopping-app-deployment
+  namespace: online-shopping-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      apps: shopping
+  template:
+    metadata:
+      labels:
+        apps: shopping
+    spec:
+      containers:
+        - name: online-shopping-app
+          image: pkmadhubani/online-shopping-app:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 100m
+              memory: 125Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi
