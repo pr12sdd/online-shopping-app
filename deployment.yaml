@@ -4,7 +4,7 @@ metadata:
   name: online-shopping-app-deployment
   namespace: online-shopping-app
 spec:
-  replicas: 6
+  replicas: 10
   selector:
     matchLabels:
       apps: shopping
